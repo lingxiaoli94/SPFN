@@ -1,0 +1,20 @@
+CUDA_visible_GPUs:
+    - "3"
+
+list_of_primitives:
+    - 'sphere'
+    - 'plane'
+    - 'cylinder'
+    - 'cone'
+
+is_nn: true
+
+n_max_instances: 24
+batch_size: 16
+use_hr_pc: false
+
+prediction_csv_file: "pred.csv"
+test_data_file: "test_models.csv"
+test_first_n: -1
+test_data_noisy: true
+bundle_dir: "results/val_bundle_final"

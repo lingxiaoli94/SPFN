@@ -1,0 +1,54 @@
+nn_name: "primitivenet"
+debug_mode: false
+
+# model parameters
+use_direct_regression: false
+batch_size: 16
+miou_loss_multiplier: 1.0
+normal_loss_multiplier: 1.0
+type_loss_multiplier: 1.0
+parameter_loss_multiplier: 1.0
+residue_loss_multiplier: 1.0
+total_loss_multiplier: 1.0
+list_of_primitives:
+    - 'sphere'
+    - 'plane'
+    - 'cylinder'
+    - 'cone'
+
+n_max_instances: 24
+
+# data source
+train_data_file: "train_models.csv"
+train_first_n: -1
+train_data_noisy: true
+val_data_file: "test_models.csv"
+val_first_n: -1
+val_data_noisy: true
+test_data_file: "test_models.csv"
+test_first_n: -1
+test_data_noisy: true
+
+# training parameters
+n_epochs: 100
+orthogonality_loss_weight: 0.1
+bn_decay_step: 200000
+decay_step: 200000
+decay_rate: 0.7
+init_learning_rate: 0.001
+val_interval: 2000
+validate_only_val: false
+snapshot_interval: 10000
+
+# I/O
+in_model_dir: "results/model"
+out_model_dir: "results/model"
+val_prediction_dir: "results/val_pred"
+val_prediction_n_keep: 5
+test_prediction_dir: "results/test_pred"
+log_dir: "results/log"
+writer_start_step: 0
+
+# GPUs
+CUDA_visible_GPUs:
+    - "1"

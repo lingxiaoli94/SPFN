@@ -1,0 +1,10 @@
+log
+model
+vis
+experiments
+build
+*.zip
+*.pyc
+*.o
+*.so
+__pycache__
