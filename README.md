@@ -10,7 +10,7 @@ Fitting geometric primitives to 3D point cloud data bridges a gap between low-le
 The code has been tested with Tensorflow 1.10 (GPU version) and Python 3.6. There are a few dependencies on the following Python libraries : numpy (tested with 1.14.5), scipy (tested with 1.1.0), pandas (tested with 0.23.4), PyYAML (tested with 3.13), and h5py (tested with 2.8.0).
 
 ### Usage
-First, while staying in the project folder, download processed ANSI 3D dataset of mechanical components:
+First, while staying in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
 ```
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
 unzip spfn_traceparts.zip
