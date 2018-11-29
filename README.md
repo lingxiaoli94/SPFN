@@ -50,3 +50,9 @@ This file contains pointers to the data source and the prediction directory. One
 python3 ../spfn/eval.py eval_config.yml
 ```
 This will generate a directory (by default `results/eval_bundle`) containing one bundle file for every shape. The bundle file contains evaluation results following the evaluation metrics propsed in the paper (mean IoU, type accuracy, different kinds of coverage numbers etc.), in addition to input data and the prediction (hence the name "bundle"). These bundle files can then be used for visualization and downstream analysis.
+
+### Acknowledgement
+Code in `pointnet_plusplus` folder is borrowed from [PointNet++](https://github.com/charlesq34/pointnet2), with slight modification to support dynamic size and extra parallel fully-connected layers at the end.
+
+### License
+This code is released under the MIT License. Refer to `LICENSE` for details.
