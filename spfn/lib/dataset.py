@@ -102,6 +102,10 @@ class Dataset:
 
         self.csv_raw = pandas.read_csv(csv_path, delimiter=',', header=None)
         self.hdf5_file_list = list(self.csv_raw[0])
+
+        # make relative path absolute
+        csv_folder = os.path.dirname(csv_path)
+        self.hdf5_file_list = [os.path.join(csv_folder, p) for p in self.hdf5_file_list if not os.path.isabs(p)]
         
         if not fixed_order:
             random.shuffle(self.hdf5_file_list)
