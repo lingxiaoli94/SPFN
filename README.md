@@ -4,6 +4,16 @@ Lingxiao Li*, [Minhyuk Sung](http://mhsung.github.io)*, [Anastasia Dubrovina](ht
 
 (* indicates equal contribution)
 
+### Citation
+```
+@misc{1811.08988,
+  Author = {Lingxiao Li and Minhyuk Sung and Anastasia Dubrovina and Li Yi and Leonidas Guibas},
+  Title = {Supervised Fitting of Geometric Primitives to 3D Point Clouds},
+  Year = {2018},
+  Eprint = {arXiv:1811.08988},
+}
+```
+
 ### Introduction
 Fitting geometric primitives to 3D point cloud data bridges a gap between low-level digitized 3D data and high-level structural information on the underlying 3D shapes. As such, it enables many downstream applications in 3D data processing. For a long time, RANSAC-based methods have been the gold standard for such primitive fitting problems, but they require careful per-input parameter tuning and thus do not scale well for large datasets with diverse shapes. In this work, we introduce Supervised Primitive Fitting Network (SPFN), an end-to-end neural network that can robustly detect a varying number of primitives at different scales without any user control. The network is supervised using ground truth primitive surfaces and primitive membership for the input points. Instead of directly predicting the primitives, our architecture first predicts per-point properties and then uses a differentiable model estimation module to compute the primitive type and parameters. We evaluate our approach on a novel benchmark of ANSI 3D mechanical component models and demonstrate a significant improvement over both the state-of-the-art RANSAC-based methods and the direct neural prediction.
 
@@ -24,14 +34,15 @@ The original CAD data is kindly provided by [Traceparts](https://www.traceparts.
 Train SPFN with our default configuration by:
 ```
 mkdir experiments && cd experiments
-python3 ../spfn/train.py ../default_configs/network_config.yml
+cp ../default_configs/network_config.yml .
+python3 ../spfn/train.py network_config.yml
 ```
 Note that the script `train.py` takes a configuration YAML file `network_config.yml` that contains GPU setting, data source, neural network parameters, training hyperparameters, and I/O parameters. Simply copy the default YAML configuration file and change parameters to your need. During training, three folders will be created/updated. In their default locations, `results/model` is the directory for storing the Tensorflow model, `results/log` is the directory for log files (created by `tf.summary.FileWriter`), and `results/val_pred` contains predictions for the validation dataset at varying training steps.
 
 #### Test
 At test time, run `train.py` with `--test` flag to run the network on test dataset speficied by `test_data_file` in the YAML configuration:
 ```
-python3 ../spfn/train.py ../default_configs/network_config.yml --test 
+python3 ../spfn/train.py network_config.yml --test 
 ```
 As a shortcut, and also to test the network with only input points without other supervision, run `train.py` with `--test_pc_in=tmp.xyz` and `--test_h5_out=tmp.h5` in additional to `--test` flag, where `tmp.xyz` is assumed to be a point cloud file with one point `x y z` on each line:
 ```
@@ -50,3 +61,9 @@ This file contains pointers to the data source and the prediction directory. One
 python3 ../spfn/eval.py eval_config.yml
 ```
 This will generate a directory (by default `results/eval_bundle`) containing one bundle file for every shape. The bundle file contains evaluation results following the evaluation metrics propsed in the paper (mean IoU, type accuracy, different kinds of coverage numbers etc.), in addition to input data and the prediction (hence the name "bundle"). These bundle files can then be used for visualization and downstream analysis.
+
+### Acknowledgement
+Code in `pointnet_plusplus` folder is borrowed from [PointNet++](https://github.com/charlesq34/pointnet2), with slight modification to support dynamic size and extra parallel fully-connected layers at the end.
+
+### License
+This code is released under the MIT License. Refer to `LICENSE` for details.
