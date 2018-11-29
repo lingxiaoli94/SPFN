@@ -10,6 +10,8 @@ Fitting geometric primitives to 3D point cloud data bridges a gap between low-le
 The code has been tested with Tensorflow 1.10 (GPU version) and Python 3.6.6. There are a few dependencies on the following Python libraries : numpy (tested with 1.14.5), scipy (tested with 1.1.0), pandas (tested with 0.23.4), PyYAML (tested with 3.13), and h5py (tested with 2.8.0).
 
 ### Usage
+
+#### Dataset
 First, while staying in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
 ```
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
@@ -17,6 +19,7 @@ unzip spfn_traceparts.zip
 ```
 The original CAD data is kindly provided by [Traceparts](https://www.traceparts.com). The provided dataset has been processed to extract primitive surface informations and samples on each surface as well as on the whole shape.
 
+#### Training
 Train SPFN with our default configuration by:
 ```
 mkdir experiments && cd experiments
@@ -24,6 +27,7 @@ python3 ../spfn/train.py ../default_configs/network_config.yml
 ```
 Note that the script `train.py` takes a configuration YAML file `network_config.yml` that contains GPU setting, data source, neural network parameters, training hyperparameters, and I/O parameters. Simply copy the default YAML configuration file and change parameters to your need. During training, three folders will be created/updated. In their default locations, `results/model` is the directory for storing the Tensorflow model, `results/log` is the directory for log files (created by `tf.summary.FileWriter`), and `results/val_pred` contains predictions for the validation dataset at varying training steps.
 
+#### Test
 At test time, run `train.py` with `--test` flag to run the network on test dataset speficied by `test_data_file` in the YAML configuration:
 ```
 python3 ../spfn/train.py ../default_configs/network_config.yml --test 
@@ -32,3 +36,6 @@ As a shortcut, and also to test the network with only input points without other
 ```
 python3 ../spfn/train.py ../default_configs/network_config.yml --test --test_pc_in=tmp.xyz --test_h5_out=tmp.h5
 ```
+The predictions are stored in [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) format.
+
+#### Evaluation
