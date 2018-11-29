@@ -40,3 +40,13 @@ python3 ../spfn/train.py ../default_configs/network_config.yml --test --test_pc_
 The predictions are stored in [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) format. Each HDF5 prediction file contains per-point normal prediction, per-point membership prediction, per-point type prediction, and estimated parameters for each primitive.
 
 #### Evaluation
+For evaluating the predictions made by SPFN and other approaches (as in ablation studies and RANSAC variants in the paper), we use a unified evaluation pipeline to compute the various metrics proposed in the paper. 
+While in `experiments` folder, first copy the default evaluation configuration file: 
+```
+cp ../default_configs/eval_config.yml .
+```
+Then one needs to modify `prediction_dir` to point to a direction containing HDF5 predictions (same format as SPFN predictions). Run the evaluation network by
+```
+python3 ../spfn/eval.py eval_config.yml
+```
+
