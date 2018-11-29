@@ -23,3 +23,12 @@ mkdir experiments && cd experiments
 python3 ../spfn/train.py ../default_configs/network_config.yml
 ```
 Note that the script `train.py` takes a configuration YAML file `network_config.yml` that contains GPU setting, data source, neural network parameters, training hyperparameters, and I/O parameters. Simply copy the default YAML configuration file and change parameters to your need. During training, three folders will be created/updated. In their default locations, `results/model` is the directory for storing the Tensorflow model, `results/log` is the directory for log files (created by `tf.summary.FileWriter`), and `results/val_pred` contains predictions for the validation dataset at varying training steps.
+
+At test time, run `train.py` with `--test` flag to run the network on test dataset speficied by `test_data_file` in the YAML configuration:
+```
+python3 ../spfn/train.py ../default_configs/network_config.yml --test 
+```
+As a shortcut, and also to test the network with only input points without other supervision, run `train.py` with `--test_pc_in=tmp.xyz` and `--test_h5_out=tmp.h5` in additional to `--test` flag, where `tmp.xyz` is assumed to be a point cloud file with one point `x y z` on each line:
+```
+python3 ../spfn/train.py ../default_configs/network_config.yml --test --test_pc_in=tmp.xyz --test_h5_out=tmp.h5
+```
