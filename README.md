@@ -22,4 +22,4 @@ Train SPFN with our default configuration by:
 mkdir experiments && cd experiments
 python3 ../spfn/train.py ../default_configs/network_config.yml
 ```
-Note that the script `train.py` takes a configuration YAML file `network_config.yml` that contains GPU setting, data source, neural model parameters, training hyperparameters, and I/O parameters. Simply copy the default YAML configuration file and change parameters to your need.
+Note that the script `train.py` takes a configuration YAML file `network_config.yml` that contains GPU setting, data source, neural network parameters, training hyperparameters, and I/O parameters. Simply copy the default YAML configuration file and change parameters to your need.
