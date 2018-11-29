@@ -16,4 +16,4 @@ prediction_dir: "results/val_pred/stepXXXXX"
 test_data_file: "traceparts_data/test_models.csv"
 test_first_n: -1
 test_data_noisy: true
-bundle_dir: "results/val_bundle_final"
+bundle_dir: "results/eval_bundle"
