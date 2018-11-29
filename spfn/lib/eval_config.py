@@ -21,8 +21,8 @@ class EvalConfig(object):
     def is_test_data_noisy(self):
         return self.fetch('test_data_noisy')
 
-    def get_prediction_csv_file(self):
-        return self.fetch('prediction_csv_file')
+    def get_prediction_dir(self):
+        return self.fetch('prediction_dir')
 
     def get_bundle_dir(self):
         return self.fetch('bundle_dir')

@@ -1,4 +1,9 @@
-nn_name: "primitivenet"
+# GPUs
+CUDA_visible_GPUs:
+    - "0"
+
+# name and mode
+nn_name: "SPFN"
 debug_mode: false
 
 # model parameters
@@ -19,13 +24,13 @@ list_of_primitives:
 n_max_instances: 24
 
 # data source
-train_data_file: "train_models.csv"
+train_data_file: "traceparts_data/train_models.csv"
 train_first_n: -1
 train_data_noisy: true
-val_data_file: "test_models.csv"
+val_data_file: "traceparts_data/test_models.csv"
 val_first_n: -1
 val_data_noisy: true
-test_data_file: "test_models.csv"
+test_data_file: "traceparts_data/test_models.csv"
 test_first_n: -1
 test_data_noisy: true
 
@@ -37,18 +42,13 @@ decay_step: 200000
 decay_rate: 0.7
 init_learning_rate: 0.001
 val_interval: 2000
-validate_only_val: false
-snapshot_interval: 10000
+snapshot_interval: 500
 
 # I/O
 in_model_dir: "results/model"
 out_model_dir: "results/model"
 val_prediction_dir: "results/val_pred"
-val_prediction_n_keep: 5
+val_prediction_n_keep: 2
 test_prediction_dir: "results/test_pred"
 log_dir: "results/log"
-writer_start_step: 0
-
-# GPUs
-CUDA_visible_GPUs:
-    - "1"
+writer_start_step: 1000

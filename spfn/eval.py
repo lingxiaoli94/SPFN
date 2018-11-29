@@ -38,7 +38,7 @@ if __name__ == '__main__':
         first_n=conf.get_test_data_first_n(), 
         fixed_order=True
     )
-    pred_loader = PredictionLoader(n_max_instances=n_max_instances, csv_path=conf.get_prediction_csv_file())
+    pred_loader = PredictionLoader(n_max_instances=n_max_instances, pred_dir=conf.get_prediction_dir())
     bundle_dir = conf.get_bundle_dir()
     if not os.path.exists(bundle_dir):
         os.makedirs(bundle_dir)

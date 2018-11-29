@@ -114,8 +114,5 @@ class NetworkConfig(object):
     def get_list_of_primitives(self):
         return self.fetch('list_of_primitives')
 
-    def should_validate_only_val(self):
-        return self.fetch('validate_only_val')
-
     def use_direct_regression(self):
         return self.fetch('use_direct_regression')

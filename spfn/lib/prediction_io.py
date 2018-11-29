@@ -9,11 +9,10 @@ import h5py
 import pickle
 
 class PredictionLoader:
-    def __init__(self, n_max_instances, csv_path):
+    def __init__(self, n_max_instances, pred_dir):
         self.n_max_instances = n_max_instances
-        self.csv_raw = pandas.read_csv(csv_path, delimiter=',', header=None)
         self.basename_to_hdf5_file = {}
-        hdf5_file_list = list(self.csv_raw[0])
+        hdf5_file_list = os.listdir(pred_dir)
         basename_list = [os.path.splitext(os.path.basename(p))[0] for p in hdf5_file_list]
         for idx, h5_file in enumerate(hdf5_file_list):
             basename = os.path.splitext(os.path.basename(h5_file))[0]
