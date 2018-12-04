@@ -28,7 +28,7 @@ First, while staying in the project folder, download processed ANSI 3D dataset o
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
 unzip spfn_traceparts.zip
 ```
-The original CAD data is kindly provided by [Traceparts](https://www.traceparts.com). The provided dataset has been processed to extract primitive surface informations and samples on each surface as well as on the whole shape.
+The original CAD data is kindly provided by [Traceparts](https://www.traceparts.com). The provided dataset has been processed to extract primitive surface information and point samples on each surface as well as on the whole shape.
 
 #### Training
 Train SPFN with our default configuration by:
