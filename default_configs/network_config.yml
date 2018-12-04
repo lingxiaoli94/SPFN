@@ -24,13 +24,13 @@ list_of_primitives:
 n_max_instances: 24
 
 # data source
-train_data_file: "traceparts_data/train_models.csv"
+train_data_file: "../traceparts_data/train_models.csv"
 train_first_n: -1
 train_data_noisy: true
-val_data_file: "traceparts_data/test_models.csv"
+val_data_file: "../traceparts_data/test_models.csv"
 val_first_n: -1
 val_data_noisy: true
-test_data_file: "traceparts_data/test_models.csv"
+test_data_file: "../traceparts_data/test_models.csv"
 test_first_n: -1
 test_data_noisy: true
 

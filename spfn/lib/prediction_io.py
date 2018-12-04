@@ -16,7 +16,7 @@ class PredictionLoader:
         basename_list = [os.path.splitext(os.path.basename(p))[0] for p in hdf5_file_list]
         for idx, h5_file in enumerate(hdf5_file_list):
             basename = os.path.splitext(os.path.basename(h5_file))[0]
-            self.basename_to_hdf5_file[basename] = h5_file
+            self.basename_to_hdf5_file[basename] = os.path.join(pred_dir, h5_file)
 
     def load_multiple(self, basename_list):
         batch_size = len(basename_list)
