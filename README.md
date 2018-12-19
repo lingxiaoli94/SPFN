@@ -23,8 +23,6 @@ The code has been tested with Tensorflow 1.10 (GPU version) and Python 3.6.6. Th
 ### Usage
 
 #### Dataset
-(We are still in the process of verifying the license issues for releasing the data. Currently the link below doesn't work. Once the verification goes through, the data will be released.)
-
 First, while staying in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
 ```
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
