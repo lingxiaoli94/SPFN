@@ -22,8 +22,11 @@ The code has been tested with Tensorflow 1.10 (GPU version) and Python 3.6.6. Th
 
 ### Usage
 
+#### Compiling PointNet++
+In order to use PointNet++, one needs to run each of the compile scripts under `pointnet_plusplus/utils/tf_ops` to compile the CUDA code. One needs to change the various path names in `pointnet_plusplus/utils/tf_ops`to point to the correct CUDA/tensorflow directories.
+
 #### Dataset
-First, while staying in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
+First, while in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
 ```
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
 unzip spfn_traceparts.zip
