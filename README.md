@@ -2,6 +2,8 @@
 Lingxiao Li*, [Minhyuk Sung](http://mhsung.github.io)*, [Anastasia Dubrovina](http://web.stanford.edu/~adkarni/), [Li Yi](https://cs.stanford.edu/~ericyi/), [Leonidas Guibas](https://geometry.stanford.edu/member/guibas/)
 [[arXiv](https://arxiv.org/abs/1811.08988)]
 
+CVPR2019 (Oral Presentation)
+
 (* indicates equal contribution)
 
 ### Citation
