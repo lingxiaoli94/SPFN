@@ -28,12 +28,21 @@ The code has been tested with Tensorflow 1.10 (GPU version) and Python 3.6.6. Th
 In order to use PointNet++, one needs to run each of the compile scripts under `pointnet_plusplus/utils/tf_ops` to compile the CUDA code. One needs to change the various path names in `pointnet_plusplus/utils/tf_ops`to point to the correct CUDA/tensorflow directories.
 
 #### Dataset
-First, while in the project folder, download processed ANSI 3D dataset of mechanical components (9.4GB zip file, 12GB after unzipping):
+First, while in the project folder, download processed ANSI 3D dataset of mechanical components (point clouds with 8k points, 9.4GB zip file, 12GB after unzipping):
 ```
 wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts.zip
 unzip spfn_traceparts.zip
 ```
 The original CAD data is kindly provided by [Traceparts](https://www.traceparts.com). The provided dataset has been processed to extract primitive surface information and point samples on each surface as well as on the whole shape.
+
+
+#### ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) [NEW] High-Res Dataset
+We also provide high-resolution point clouds of the same dataset, which has 131,072 (128k) points for each object (121GB tar file):
+```
+wget --no-check-certificate https://shapenet.cs.stanford.edu/media/minhyuk/spfn/data/spfn_traceparts_high_res.tar
+```
+
+
 
 #### Training
 Train SPFN with our default configuration by:
